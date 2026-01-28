@@ -1,0 +1,6 @@
+@Challenge_UBS_HostAddress = http://localhost:5291
+
+GET {{Challenge_UBS_HostAddress}}/RiscoOperacao/
+Accept: application/json
+
+###
