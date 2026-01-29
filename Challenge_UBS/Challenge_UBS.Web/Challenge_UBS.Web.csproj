@@ -10,4 +10,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Challenge_UBS.Application\Challenge_UBS.Application.csproj" />
+  </ItemGroup>
+
 </Project>

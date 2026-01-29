@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Challenge_UBS.Domain\Challenge_UBS.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
