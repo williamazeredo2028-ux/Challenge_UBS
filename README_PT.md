@@ -20,6 +20,7 @@ Classifica trades individualmente com base nas regras:
   MEDIUMRISK   Value ≥ 1.000.000 **e** ClientSector = Public
   
   HIGHRISK     Value ≥ 1.000.000 **e** ClientSector = Private
+  
 
   **Entrada:** lista de operações
   
