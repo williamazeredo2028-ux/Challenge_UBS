@@ -21,5 +21,7 @@ Classifies individual trades according to the rules below:
   
   HIGHRISK     Value ≥ 1.000.000 **and** ClientSector = Private
 
+
   **Input:** list of trades
+  
   **Output:** list of risk categories in the same order
