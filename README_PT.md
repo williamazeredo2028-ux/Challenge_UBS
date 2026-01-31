@@ -16,5 +16,7 @@ Classifica trades individualmente com base nas regras:
   Categoria    Regra
   ------------ ------------------------------------------------
   LOWRISK      Value \< 1.000.000
+  
   MEDIUMRISK   Value ≥ 1.000.000 **e** ClientSector = Public
+  
   HIGHRISK     Value ≥ 1.000.000 **e** ClientSector = Private
