@@ -13,7 +13,7 @@ focusing on clarity, extensibility, and performance.
 
 Classifies individual trades according to the rules below:
 
-  Categoria    Regra
+  Category    Rule
   ------------ ------------------------------------------------
   LOWRISK      Value \< 1.000.000
   
