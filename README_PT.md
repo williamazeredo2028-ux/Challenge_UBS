@@ -22,4 +22,5 @@ Classifica trades individualmente com base nas regras:
   HIGHRISK     Value ≥ 1.000.000 **e** ClientSector = Private
 
   **Entrada:** lista de operações
+  
   **Saída:** lista de categorias de risco na mesma ordem
