@@ -1,21 +1,27 @@
-﻿using System.Diagnostics;
-using Challenge_UBS.Domain.Entities;
+﻿using Challenge_UBS.Domain.Entities;
 using Challenge_UBS.Domain.Enums;
-using Challenge_UBS.Domain.Interfaces;
+using Challenge_UBS.Domain.Rules;
 
 namespace Challenge_UBS.Application.Services;
+
 public class RiskClassifier
 {
-    private readonly IEnumerable<IRiskRule> _rules;
+    private readonly IReadOnlyCollection<IRiskRule> _rules;
 
     public RiskClassifier(IEnumerable<IRiskRule> rules)
     {
-        _rules = rules;
+        _rules = rules.ToList();
     }
 
+    //Take the first matching rule and return its category
     public RiskCategory Classify(Trade trade)
     {
-        //Take the first matching rule and return its category
-        return _rules.First(r => r.IsMatch(trade)).Category;
+        foreach (var rule in _rules)
+        {
+            if (rule.IsMatch(trade))
+                return rule.Category;
+        }
+
+        throw new InvalidOperationException("No risk rule matched the trade.");
     }
 }
