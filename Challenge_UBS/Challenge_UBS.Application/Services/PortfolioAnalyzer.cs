@@ -1,5 +1,5 @@
 ﻿using Challenge_UBS.Application.Models;
-using Challenge_UBS.Domain.Entities;
+using Challenge_UBS.Domain.Models;
 using Challenge_UBS.Domain.Enums;
 using Challenge_UBS.Domain.Rules;
 

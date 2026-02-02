@@ -1,6 +1,6 @@
 ﻿using Challenge_UBS.Domain.Enums;
 
-namespace Challenge_UBS.Domain.Entities;
+namespace Challenge_UBS.Domain.Models;
 
 //Class used to represent a trade with client details and value.
 public class Trade

@@ -1,4 +1,4 @@
-﻿using Challenge_UBS.Domain.Entities;
+﻿using Challenge_UBS.Domain.Models;
 using System.Runtime.ConstrainedExecution;
 
 namespace Challenge_UBS.Application.DTOs;
