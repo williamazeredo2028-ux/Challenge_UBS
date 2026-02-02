@@ -16,6 +16,8 @@ public class RiskClassifier
     //Take the first matching rule and return its category
     public RiskCategory Classify(Trade trade)
     {
+        ArgumentNullException.ThrowIfNull(trade);
+
         foreach (var rule in _rules)
         {
             if (rule.IsMatch(trade))

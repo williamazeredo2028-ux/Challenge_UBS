@@ -1,7 +1,8 @@
 ﻿using Challenge_UBS.Application.DTOs;
 using Challenge_UBS.Application.Services;
-using Challenge_UBS.Domain.Models;
 using Challenge_UBS.Domain.Enums;
+using Challenge_UBS.Domain.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -35,12 +36,19 @@ public class TradesController : ControllerBase
 
         var result = new List<string>(trades.Count);
 
-        foreach (var dto in trades)
+        try
         {
-            var trade = MapToDomain(dto);
-            var category = _riskClassifier.Classify(trade);
+            foreach (var dto in trades)
+            {
+                var trade = MapToDomain(dto);
+                var category = _riskClassifier.Classify(trade);
 
-            result.Add(category.ToString());
+                result.Add(category.ToString());
+            }
+        }
+        catch (ArgumentException)
+        {
+            return BadRequest("Invalid client sector: {dto.ClientSector}");
         }
 
         return Ok(new ClassificationResponseDto
@@ -60,6 +68,11 @@ public class TradesController : ControllerBase
         if (trades.Count > 100_000)
             return BadRequest("Maximum allowed trades per request is 100,000.");
 
+
+        foreach (var trade in trades)
+            if (string.IsNullOrEmpty(trade.ClientId))
+                return BadRequest("Trade ClientId cannot be null or empty.");
+        
         var stopwatch = Stopwatch.StartNew();
 
         var domainTrades = trades.Select(MapToDomain).ToList();
@@ -100,8 +113,7 @@ public class TradesController : ControllerBase
                 true,
                 out var sector))
         {
-            throw new ArgumentException(
-                $"Invalid client sector: {dto.ClientSector}");
+            throw new ArgumentException($"Invalid client sector: {dto.ClientSector}");
         }
 
         return new Trade(
