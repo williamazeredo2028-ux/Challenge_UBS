@@ -1,3 +1,6 @@
+## Solution Structure
+
+```text
 Challenge_UBS.sln
 │
 ├── Challenge_UBS.Domain                # Core business logic and domain rules
