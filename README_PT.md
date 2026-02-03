@@ -25,3 +25,28 @@ Classifica trades individualmente com base nas regras:
   **Entrada:** lista de operações
   
   **Saída:** lista de categorias de risco na mesma ordem
+
+### Parte 2 --- Análise de Portfólio
+
+Além da classificação, retorna: - Quantidade de trades por categoria -
+Valor total agregado por categoria - Cliente com maior exposição em cada
+categoria - Tempo de processamento da requisição
+
+## Arquitetura
+
+    Domain → Application → Web → Tests
+
+## Como Executar
+
+``` bash
+dotnet restore
+dotnet run --project Challenge_UBS.Web
+```
+
+Swagger disponível em `/swagger`.
+
+## Testes
+
+``` bash
+dotnet test
+```
