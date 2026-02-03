@@ -9,7 +9,7 @@ focusing on clarity, extensibility, and performance.
 
 ## Features
 
-### Part 1 — Risk Classification
+### Part 1 --- Risk Classification
 
 Classifies individual trades according to the rules below:
 
@@ -25,3 +25,27 @@ Classifies individual trades according to the rules below:
   **Input:** list of trades
   
   **Output:** list of risk categories in the same order
+
+### Part 2 --- Portfolio Analysis
+
+In addition to classification, it returns: - Number of trades per category - Total value added per category - Client with the highest exposure in each category - Request processing time
+
+## Architecture
+
+Domain → Application → Web → Tests
+
+## How to Run
+
+``` bash
+dotnet restore
+dotnet run --project Challenge_UBS.Web
+
+```
+
+Swagger available at `/swagger`.
+
+## Tests
+
+``` bash
+dotnet test
+```
